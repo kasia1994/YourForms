@@ -1,0 +1,52 @@
+<div>
+  <div>
+    {{pageTitle}}
+  </div>
+  <div style="margin-top:15px;margin-right: 25px">
+    <table class="table-responsive">
+      <thead>
+        <tr>
+          <th class="col-md-1 col-sm-1 col-xs-1">Lp.</th>
+          <th class="col-md-2 col-sm-2 col-xs-2">Imię</th>
+          <th class="col-md-3 col-sm-3 col-xs-3">Nazwisko</th>
+          <th class="col-md-4 col-sm-4 col-xs-4">Data urodzenia</th>
+          <th class="col-md-5 col-sm-5 col-xs-5">Data utworzenia</th>
+          <th class="col-md-6 col-sm-6 col-xs-6">Ostatnia aktualizacja</th>
+          <th class="col-md-7 col-sm-7 col-xs-7">Płeć</th>
+          <th class="col-md-8 col-sm-8 col-xs-8">Narodowość</th>
+          <th class="col-md-9 col-sm-9 col-xs-9">Nr telefonu</th>
+          <th class="col-md-10 col-sm-10 col-xs-10">Adres email</th>
+          <th class="col-md-11 col-sm-11 col-xs-11">Ocena</th>
+          <th class="col-md-12 col-sm-12 col-xs-12">Aktywny</th>
+          <th class="col-md-1 col-sm-1 col-xs-1"></th>
+          <th class="col-md-1 col-sm-1 col-xs-1"></th>
+          <th class="col-md-1 col-sm-1 col-xs-1"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let profile of profiles let i=index" [attr.data-index]"="i">
+          <td class="col-md-1 col-sm-1 col-xs-1">{{i+1}}</td>
+          <td class="col-md-2 col-sm-2 col-xs-2">{{profile.name}}</td>
+          <td class="col-md-3 col-sm-3 col-xs-3">{{profile.surname}}</td>
+          <td class="col-md-4 col-sm-4 col-xs-4">{{profile.birthdayDate}}</td>
+          <td class="col-md-5 col-sm-5 col-xs-5">{{profile.createDate}}</td>
+          <td class="col-md-6 col-sm-6 col-xs-6">{{profile.lastUpdate}}</td>
+          <td class="col-md-7 col-sm-7 col-xs-7">{{profile.gender}}</td>
+          <td class="col-md-8 col-sm-8 col-xs-8">{{profile.nationality}}</td>
+          <td class="col-md-9 col-sm-9 col-xs-9">{{profile.phone}}</td>
+          <td class="col-md-10 col-sm-10 col-xs-10">{{profile.emailAdress}}</td>
+          <td class="col-md-11 col-sm-11 col-xs-11">{{profile.rating}}</td>
+          <td class="col-md-12 col-sm-12 col-xs-12">{{profile.isActive}}</td>
+          <td class="col-md-1 col-sm-1 col-xs-1"><button class="btn btn-primary" (click)="getProperty(propertyId)">Szczegóły</button></td>
+          <td class="col-md-1 col-sm-1 col-xs-1"><button class="btn btn-success" (click)="updateProperty(propertyId)">Zaktualizuj</button></td>
+          <td class="col-md-1 col-sm-1 col-xs-1"><button class="btn btn-danger" (click)="deleteProperty(propertyId)">Usuń</button></td>
+        </tr>
+        <tr *ngIf="profiles.Length==0">
+          <td style="text-align: center" colspan="8">{{tempInfo}}</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+  </div>
+</div>
