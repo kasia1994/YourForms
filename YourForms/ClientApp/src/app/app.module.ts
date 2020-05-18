@@ -16,6 +16,7 @@ import { ProfilesComponent } from './profile/profiles.component';
 import { ProfilesService } from './profile/services/profiles.service';
 import { ProfilesBackendService } from './services/profiles-backend';
 import { HttpProfilesBackendService } from './services/http-profiles-backend.service'
+import { ProfileDetailsComponent } from './profile/profile-details. component';
 
 
 @NgModule({
@@ -25,17 +26,21 @@ import { HttpProfilesBackendService } from './services/http-profiles-backend.ser
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    ProfilesComponent
+    ProfilesComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: ProfilesComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'profiles', component: ProfilesComponent },
+      { path: 'profile', component: ProfilesComponent },
+      { path: 'profile/new-profile', component: ProfileDetailsComponent },
+      { path: 'profile/profile-details/:id', component: ProfileDetailsComponent },
+      { path: 'profile/profile-update/:id', component: ProfileDetailsComponent }
     ])
   ],
   providers: [

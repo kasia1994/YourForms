@@ -10,7 +10,7 @@
           "options": {
             "progress": false,
             "extractCss": true,
-            "outputPath": "dist",
+            "outputPath": "src",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
